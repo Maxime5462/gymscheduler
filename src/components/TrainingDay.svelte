@@ -1,5 +1,6 @@
 <script>
   import TraininDayDetails from "./TrainingDayDetails.svelte";
+  import TrainingWeekSummary from "./TrainingWeekSummary.svelte";
   const nbOfDays = [
     { id: 1, text: "One day", value: [1] },
     { id: 2, text: "Two days", value: [1, 2] },
@@ -11,6 +12,10 @@
   ];
 
   let nbDaysTrainingPerWeek;
+
+  function handleNewExercise(event) {
+    console.log("on:add-exercise", event.detail);
+  }
 </script>
 
 <style>
@@ -40,8 +45,11 @@
   <div class="all-days">
     {#each nbDaysTrainingPerWeek.value as dayNumber, i}
       <div class="training-day-details">
-        <TraininDayDetails title={`day ${++i}`} />
+        <TraininDayDetails
+          title={`day ${++i}`}
+          on:add-exercise={handleNewExercise} />
       </div>
     {/each}
   </div>
+  <TrainingWeekSummary />
 {/if}
