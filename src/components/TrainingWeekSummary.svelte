@@ -29,5 +29,17 @@
 
 </style>
 
-<h2>Summary</h2>
-{#if isDataFormatted}{formattedData}{/if}
+{#if isDataFormatted}
+  <h2>Summary</h2>
+  {#if summary.length}
+    {#each Object.keys(formattedData) as day}
+      <h2>{day}</h2>
+      {#each formattedData[day] as ex}
+        {ex.activity}: {ex.sets} sets of {ex.reps} reps
+        <br />
+      {/each}
+    {/each}
+    {:else}
+    <div>Missing data: please add exercises</div>
+  {/if}
+{/if}
