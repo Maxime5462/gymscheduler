@@ -1,5 +1,5 @@
 <script>
-import TrainingDay from './components/TrainingDay.svelte'
+  import TrainingDay from "./components/TrainingDay.svelte";
   export let name;
 </script>
 
@@ -10,4 +10,4 @@ import TrainingDay from './components/TrainingDay.svelte'
 </style>
 
 <h1>{name}</h1>
-<TrainingDay/>
+<TrainingDay />
