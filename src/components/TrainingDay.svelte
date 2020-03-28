@@ -18,6 +18,7 @@
   function handleNewExercise(event) {
     console.log("on:add-exercise", event.detail);
     summary = [...summary, event.detail];
+    isSummaryReady = false;
   }
 
   function generateSummary() {
@@ -58,6 +59,8 @@
       </div>
     {/each}
   </div>
-  <TrainingWeekSummary {summary} days={nbDaysTrainingPerWeek.value.length} />
+  {#if isSummaryReady}
+    <TrainingWeekSummary {summary} days={nbDaysTrainingPerWeek.value.length} />
+  {/if}
   <button on:click={generateSummary}>generate summary</button>
 {/if}
